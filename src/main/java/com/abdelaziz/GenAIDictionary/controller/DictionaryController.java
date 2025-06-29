@@ -24,6 +24,14 @@ public class DictionaryController {
     }
 
 
+@GetMapping("/definition/{word}/image")
+    public ResponseEntity<String> getDefinitionVisual(@PathVariable String word,
+                                                        @RequestParam(required = true) String fromLanguage,
+                                                        @RequestParam(required = false, defaultValue = "English") String toLanguage) {
+        return ResponseEntity.ok(dictionaryAIService.getDefinitionVisual(word, fromLanguage));
+    }
+
+
 
     // You can also add methods for adding words, updating definitions, etc.
 }
